@@ -1,10 +1,14 @@
 import { useState } from "react";
-import Layout from "./components/Layout/Layout";
-import AllMeetupsPage from "./pages/AllMeetupsPage";
-import FavoritesPage from "./pages/Favorites";
-import NewMeetupsPage from "./pages/NewMeetup";
-import { ALL_MEETUP_PAGE, FAVORITES_PAGE, NEW_MEETUP_PAGE } from "./utils/constants";
-import MainNavigation from "./components/Navigators/MainNavigator/MainNavigation"
+import Layout from "../Layout/Layout";
+import AllMeetupsPage from "../../pages/AllMeetupsPage";
+import FavoritesPage from "../../pages/Favorites";
+import NewMeetupsPage from "../../pages/NewMeetup";
+import {
+  ALL_MEETUP_PAGE,
+  FAVORITES_PAGE,
+  NEW_MEETUP_PAGE,
+} from "../../utils/constants";
+import MainNavigation from "../Navigators/MainNavigator/MainNavigation";
 
 function App() {
   const [page, setPage] = useState(ALL_MEETUP_PAGE);
