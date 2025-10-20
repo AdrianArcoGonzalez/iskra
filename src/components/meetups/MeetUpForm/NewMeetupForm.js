@@ -1,4 +1,4 @@
-import Card from "../ui/Card";
+import Card from "../../Card/Card"
 import classes from "./NewMeetupForm.module.css";
 
 export default function NewMeetupForm() {
