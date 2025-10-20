@@ -1,4 +1,8 @@
-import { ALL_MEETUP_PAGE, FAVORITES_PAGE, NEW_MEETUP_PAGE } from "../../../utils/constants";
+import {
+  ALL_MEETUP_PAGE,
+  FAVORITES_PAGE,
+  NEW_MEETUP_PAGE,
+} from "../../../utils/constants";
 
 import classes from "./MainNavigation.module.css";
 
