@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { describe, test, expect, vi } from "vitest";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
+import { renderWithRouter } from "../../utils/testUtils";
 
 const dataMock = [
   {
@@ -22,11 +23,8 @@ vi.mock("../../hooks/useFetch", () => ({
 describe("App Component", () => {
   test("renders App without crashing", () => {
     const testId = "app";
-    render(
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    );
+
+    renderWithRouter(<App />);
     const app = screen.getByTestId(testId);
 
     expect(app).toBeInTheDocument();
@@ -35,11 +33,7 @@ describe("App Component", () => {
   test("renders the navigation component", () => {
     const title = "React Meetups";
 
-    render(
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    );
+    renderWithRouter(<App />);
     const text = screen.getByText(title);
 
     expect(text).toBeInTheDocument();
@@ -47,11 +41,8 @@ describe("App Component", () => {
 
   test("renders the main layout", () => {
     const testId = "layout";
-    render(
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    );
+
+    renderWithRouter(<App />);
 
     const layoutContainer = screen.getByTestId(testId);
 
