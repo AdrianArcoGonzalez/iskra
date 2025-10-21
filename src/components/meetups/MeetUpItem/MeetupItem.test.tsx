@@ -1,9 +1,10 @@
 import { render, screen } from "@testing-library/react";
-import { describe, test, expect, vi, beforeEach } from "vitest";
+import { describe, test, expect, vi, beforeEach, MockedFunction } from "vitest";
 import MeetupItem from "./MeetupItem";
-import { useFetch } from "../../../hooks/useFetch";
+import { useContext } from "react";
+import { MeetUp } from "../../../interfaces/MeetUp";
 
-const dataMock = [
+const dataMock: MeetUp[] = [
   {
     id: "m1",
     image: "image",
@@ -13,9 +14,16 @@ const dataMock = [
   },
 ];
 
-vi.mock("../../../hooks/useFetch", () => ({
-  useFetch: vi.fn(),
-}));
+// Mock del useContext de React
+vi.mock("react", async () => {
+  const actual = await vi.importActual("react");
+  return {
+    ...actual,
+    useContext: vi.fn(),
+  };
+});
+
+const mockedUseContext = useContext as MockedFunction<typeof useContext>;
 
 describe("<MeetupItem />", () => {
   beforeEach(() => {
@@ -23,19 +31,20 @@ describe("<MeetupItem />", () => {
   });
 
   test("renders loading state", () => {
-    (useFetch as jest.Mock).mockReturnValue({
-      data: null,
-      loading: true,
+    mockedUseContext.mockReturnValue({
+      meetUps: [],
+      dispatch: vi.fn(),
     });
 
+    const text = "Loading...";
     render(<MeetupItem />);
-    expect(screen.getByText("Loading...")).toBeInTheDocument();
+    expect(screen.getByText(text)).toBeInTheDocument();
   });
 
   test("renders meetups after loading", () => {
-    (useFetch as jest.Mock).mockReturnValue({
-      data: dataMock,
-      loading: false,
+    mockedUseContext.mockReturnValue({
+      meetUps: dataMock,
+      dispatch: vi.fn(),
     });
 
     render(<MeetupItem />);
