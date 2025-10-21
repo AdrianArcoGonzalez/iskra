@@ -1,14 +1,12 @@
 import classes from "./MeetupItem.module.css";
 import Card from "../../Card/Card";
-import { useFetch } from "../../../hooks/useFetch";
+import { useContext } from "react";
+import MeetUpContext from "../../../store/context/MeetUpContext";
 
 export default function MeetupItem() {
-  const { data } = useFetch({
-    url: "/data.json",
-  });
-
-  if (!data) return <p>Loading...</p>;
-  let [item] = data;
+  const { meetUps } = useContext(MeetUpContext);
+  if (!meetUps[0]) return <p>Loading...</p>;
+  let [item] = meetUps;
 
   return (
     <li className={classes.item} data-test="meet-up-item">
