@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
+import { MeetUp } from "../interfaces/MeetUp";
 
-export const useFetch = (options) => {
-  const [data, setData] = useState(null);
+export const useFetch = (options: any) => {
+  const [data, setData] = useState<null | MeetUp[]>(null);
 
   useEffect(() => {
     fetch(options.url)

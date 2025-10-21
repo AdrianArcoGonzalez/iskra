@@ -1,8 +1,8 @@
-import Card from "../../Card/Card"
-import classes from "./NewMeetupForm.module.css";
+import Card from "../../Card/Card";
+import classes from "./NewMeetUpForm.module.css";
 
 export default function NewMeetupForm() {
-  function submitHandler(event) {
+  function submitHandler(event: React.FormEvent) {
     event.preventDefault();
   }
 
@@ -23,7 +23,7 @@ export default function NewMeetupForm() {
         </div>
         <div className={classes.control}>
           <label htmlFor="description">Description</label>
-          <textarea id="description" required rows="5"></textarea>
+          <textarea id="description" required rows={5}></textarea>
         </div>
         <div className={classes.actions}>
           <button>Add Meetup</button>

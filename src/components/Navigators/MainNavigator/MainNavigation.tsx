@@ -6,7 +6,11 @@ import {
 
 import classes from "./MainNavigation.module.css";
 
-export default function MainNavigation({ setPage }) {
+interface MainNavigationProps {
+  setPage: (page: number) => void;
+}
+
+export default function MainNavigation({ setPage }: MainNavigationProps) {
   return (
     <header className={classes.header} data-test="navigation-header">
       <div className={classes.logo}>React Meetups</div>
