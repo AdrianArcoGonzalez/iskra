@@ -1,5 +1,5 @@
 import Card from "../../Card/Card";
-import classes from "./NewMeetUpForm.module.css";
+import classes from "./NewMeetupForm.module.css";
 
 export default function NewMeetUpForm() {
   function submitHandler(event: React.FormEvent) {

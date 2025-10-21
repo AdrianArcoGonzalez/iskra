@@ -11,27 +11,31 @@ interface MainNavigationProps {
 }
 
 export default function MainNavigation({ setPage }: MainNavigationProps) {
+  const handleClick = (page: number) => {
+    setPage(page);
+  };
+
   return (
     <header className={classes.header} data-test="navigation-header">
       <div className={classes.logo}>React Meetups</div>
       <nav>
         <ul>
           <li>
-            <a href="#" onClick={() => setPage(ALL_MEETUP_PAGE)}>
+            <button onClick={() => handleClick(ALL_MEETUP_PAGE)}>
               All Meetups
-            </a>
+            </button>
           </li>
 
           <li>
-            <a href="#" onClick={() => setPage(NEW_MEETUP_PAGE)}>
+            <button onClick={() => handleClick(NEW_MEETUP_PAGE)}>
               Add New Meetup
-            </a>
+            </button>
           </li>
           <li>
-            <a href="#" onClick={() => setPage(FAVORITES_PAGE)}>
+            <button onClick={() => handleClick(FAVORITES_PAGE)}>
               My Favorites
               <span className={classes.badge}>{0}</span>
-            </a>
+            </button>
           </li>
         </ul>
       </nav>
