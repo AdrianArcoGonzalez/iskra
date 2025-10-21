@@ -1,6 +1,6 @@
 import { useReducer } from "react";
 import MeetUpContext from "./MeetUpContext";
-import meetUpsReducer from "../reducers/useReducer";
+import meetUpsReducer from "../reducers/meetUpsReducer";
 
 interface MeetUpContextProviderProps {
   children: JSX.Element | JSX.Element[];

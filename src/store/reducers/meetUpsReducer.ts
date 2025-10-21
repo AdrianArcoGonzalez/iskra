@@ -9,9 +9,20 @@ const meetUpsReducer = (
   let meetUps: MeetUp[] = [];
   switch (action.type) {
     case actions.ADD_MEETUPS:
-      meetUps = [...meetUps, ...(action as AddMeetUpsAction).payload];
+      meetUps = (action as AddMeetUpsAction).payload.filter((meetUp) =>
+        previousData.filter((prevMeetUp) => prevMeetUp.id !== meetUp.id)
+      );
+
       break;
 
+    case actions.TOOGLE_FAV:
+      const meetUpId = (action as { type: string; payload: string }).payload;
+      meetUps = previousData.map((meetUp) =>
+        meetUp.id === meetUpId
+          ? { ...meetUp, isFavorite: !meetUp.isFavorite }
+          : meetUp
+      );
+      break;
     default:
       meetUps = [...previousData];
   }

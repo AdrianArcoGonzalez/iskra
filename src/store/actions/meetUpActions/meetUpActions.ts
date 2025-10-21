@@ -1,5 +1,5 @@
 import { MeetUp } from "../../../interfaces/MeetUp";
-import { AddMeetUpsAction } from "../../types/actions";
+import { AddMeetUpsAction, ToogleFavAction } from "../../types/actions";
 
 export const addMeetUpsActionCreator = (
   meetUps: MeetUp[]
@@ -7,5 +7,12 @@ export const addMeetUpsActionCreator = (
   return {
     type: "ADD_MEETUPS",
     payload: meetUps,
+  };
+};
+
+export const toggleFavActionCreator = (id: string): ToogleFavAction => {
+  return {
+    type: "TOOGLE_FAV",
+    payload: id,
   };
 };
