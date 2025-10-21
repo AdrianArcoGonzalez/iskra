@@ -4,4 +4,5 @@ export interface MeetUp {
   title: string;
   address: string;
   description: string;
+  isFavorite?: boolean;
 }

@@ -7,3 +7,6 @@ export interface Action {
 export interface AddMeetUpsAction extends Action {
   payload: MeetUp[];
 }
+export interface ToogleFavAction extends Action {
+  payload: string;
+}

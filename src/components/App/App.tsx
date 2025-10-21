@@ -1,7 +1,7 @@
 import Layout from "../Layout/Layout";
 import AllMeetupsPage from "../../pages/AllMeetupsPage";
-import FavoritesPage from "../../pages/Favorites";
-import NewMeetupsPage from "../../pages/NewMeetup";
+import FavoritesPage from "../../pages/FavoritesPage";
+import NewMeetupsPage from "../../pages/NewMeetupPage";
 import { Routes, Route, Navigate } from "react-router-dom";
 import MainNavigation from "../Navigators/MainNavigator/MainNavigation";
 import {

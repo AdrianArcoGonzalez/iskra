@@ -2,12 +2,16 @@ import { useContext, useState } from "react";
 import MeetUpContext from "../store/context/MeetUpContext";
 import { useFetch } from "./useFetch";
 import { APIURL } from "../utils/constants";
-import { addMeetUpsActionCreator } from "../store/actions/meetUpActions/meetUpActions";
+import {
+  addMeetUpsActionCreator,
+  toggleFavActionCreator,
+} from "../store/actions/meetUpActions/meetUpActions";
 
 const useMeetups = () => {
   const { getData } = useFetch();
   const { dispatch } = useContext(MeetUpContext);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+
   const getMeetups = async () => {
     try {
       setIsLoading(true);
@@ -22,7 +26,11 @@ const useMeetups = () => {
     }
   };
 
-  return { getMeetups, isLoading };
+  const togglefavMeetUp = (id: string) => {
+    dispatch(toggleFavActionCreator(id));
+  };
+
+  return { getMeetups, isLoading, togglefavMeetUp };
 };
 
 export default useMeetups;

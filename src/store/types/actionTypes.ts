@@ -1,7 +1,6 @@
-export type ActionType = "ADD_MEETUPS" | "FAV_MEETUP" | "UNFAV_MEETUP";
+export type ActionType = "ADD_MEETUPS" | "TOOGLE_FAV";
 
 export const actions = {
   ADD_MEETUPS: "ADD_MEETUPS",
-  FAV_MEETUP: "FAV_MEETUP",
-  UNFAV_MEETUP: "UNFAV_MEETUP",
+  TOOGLE_FAV: "TOOGLE_FAV",
 };

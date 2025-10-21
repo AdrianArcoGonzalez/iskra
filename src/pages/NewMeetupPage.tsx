@@ -1,5 +1,5 @@
 import NewMeetUpForm from "../components/meetups/MeetUpForm/NewMeetUpForm";
-import pageTitles from "./data";
+import pageTitles from "./data/data";
 
 export default function NewMeetupsPage() {
   return (
