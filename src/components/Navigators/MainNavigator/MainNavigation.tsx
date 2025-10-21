@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import {
   ALL_MEETUP_PAGE,
   FAVORITES_PAGE,
@@ -6,13 +7,10 @@ import {
 
 import classes from "./MainNavigation.module.css";
 
-interface MainNavigationProps {
-  setPage: (page: number) => void;
-}
-
-export default function MainNavigation({ setPage }: MainNavigationProps) {
-  const handleClick = (page: number) => {
-    setPage(page);
+export default function MainNavigation() {
+  const navigate = useNavigate();
+  const handleNavigate = (path: string) => {
+    navigate(path);
   };
 
   return (
@@ -21,19 +19,19 @@ export default function MainNavigation({ setPage }: MainNavigationProps) {
       <nav>
         <ul>
           <li>
-            <button onClick={() => handleClick(ALL_MEETUP_PAGE)}>
-              All Meetups
+            <button onClick={() => handleNavigate(ALL_MEETUP_PAGE)}>
+              <span>All Meetups</span>
             </button>
           </li>
 
           <li>
-            <button onClick={() => handleClick(NEW_MEETUP_PAGE)}>
-              Add New Meetup
+            <button onClick={() => handleNavigate(NEW_MEETUP_PAGE)}>
+              <span>Add New Meetup</span>
             </button>
           </li>
           <li>
-            <button onClick={() => handleClick(FAVORITES_PAGE)}>
-              My Favorites
+            <button onClick={() => handleNavigate(FAVORITES_PAGE)}>
+              <span>My Favorites</span>
               <span className={classes.badge}>{0}</span>
             </button>
           </li>
