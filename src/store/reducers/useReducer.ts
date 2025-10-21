@@ -6,10 +6,10 @@ const meetUpsReducer = (
   previousData: MeetUp[],
   action: Action | { type: string; payload?: MeetUp[] }
 ) => {
-  let meetUps = [];
+  let meetUps: MeetUp[] = [];
   switch (action.type) {
     case actions.ADD_MEETUPS:
-      meetUps = [...previousData, ...(action as AddMeetUpsAction).payload];
+      meetUps = [...meetUps, ...(action as AddMeetUpsAction).payload];
       break;
 
     default:
