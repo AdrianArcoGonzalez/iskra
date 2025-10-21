@@ -1,7 +1,9 @@
+import pageTitles from "./data";
+
 export default function FavoritesPage() {
   return (
     <section>
-      <h1>Favorites Page</h1>
+      <h1>{pageTitles.favorites}</h1>
     </section>
   );
 }
