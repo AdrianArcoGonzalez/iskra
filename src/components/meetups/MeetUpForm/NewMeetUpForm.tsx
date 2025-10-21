@@ -1,7 +1,7 @@
 import Card from "../../Card/Card";
 import classes from "./NewMeetUpForm.module.css";
 
-export default function NewMeetupForm() {
+export default function NewMeetUpForm() {
   function submitHandler(event: React.FormEvent) {
     event.preventDefault();
   }
