@@ -1,6 +1,7 @@
-import { useFetch } from "../../../hooks/useFetch";
 import classes from "./MeetupItem.module.css";
-import Card from "../../Card/Card"
+import Card from "../../Card/Card";
+import { useFetch } from "../../../hooks/useFetch";
+
 export default function MeetupItem() {
   const { data } = useFetch({
     url: "/data.json",
@@ -10,7 +11,7 @@ export default function MeetupItem() {
   let [item] = data;
 
   return (
-    <li className={classes.item} data-test='meet-up-item'>
+    <li className={classes.item} data-test="meet-up-item">
       <Card>
         <div className={classes.image}>
           <img src={item.image} alt={item.title} />

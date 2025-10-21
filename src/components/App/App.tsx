@@ -30,7 +30,7 @@ function App() {
   }
 
   return (
-    <div data-test="app">
+    <div data-testid="app">
       <MainNavigation setPage={setPage} />
       <Layout>{getCurrentPageComponent()}</Layout>
     </div>
