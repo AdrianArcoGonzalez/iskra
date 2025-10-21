@@ -3,14 +3,14 @@ import classes from "./MeetUpList.module.css";
 import MeetUpContext from "../../../store/context/MeetUpContext";
 import MeetupItem from "../MeetUpItem/MeetupItem";
 import useMeetups from "../../../hooks/useMeetups";
+import { MeetUp } from "../../../interfaces/MeetUp";
 
-const MeetUpList = () => {
-  const { meetUps } = useContext(MeetUpContext);
-  const { getMeetups, isLoading } = useMeetups();
-
-  useEffect(() => {
-    if (!meetUps.length) getMeetups();
-  }, []);
+interface MeetUpListProps {
+  meetUps: MeetUp[];
+  emptyMsg: string;
+}
+const MeetUpList = ({ meetUps, emptyMsg }: MeetUpListProps) => {
+  const { isLoading } = useMeetups();
 
   return (
     <ul className={classes.list}>
@@ -23,7 +23,7 @@ const MeetUpList = () => {
           </li>
         ))
       ) : (
-        <li>No meetups found.</li>
+        <li className={classes.item}>{emptyMsg}</li>
       )}
     </ul>
   );
