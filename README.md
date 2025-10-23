@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# React Meetup App 🚀
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Una aplicación moderna de gestión de meetups construida con **React 18**, **TypeScript** y **Vite**. Permite a los usuarios explorar, crear y gestionar meetups de forma intuitiva y responsiva.
 
-## Available Scripts
+## ✨ Características
 
-In the project directory, you can run:
+- **📅 Gestión completa de meetups**: Visualiza, crea y marca como favoritos
+- **📱 Diseño responsivo**: Navegación adaptativa con menú móvil
+- **⚡ Rendimiento optimizado**: Construido con Vite para desarrollo ultra-rápido
+- **🎯 TypeScript**: Tipado estático para mayor robustez del código
+- **🧪 Cobertura de testing**: Tests unitarios con Vitest y Testing Library
+- **📐 Arquitectura escalable**: Context API, custom hooks y componentes reutilizables
+- **🎨 CSS Modules**: Estilos modulares y encapsulados
+- **✅ Validación de formularios**: Integración con Formik y Yup
 
-### `npm start`
+## 🛠️ Stack Tecnológico
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+| Categoría            | Tecnologías                                    |
+| -------------------- | ---------------------------------------------- |
+| **Frontend**         | React 18.3.1, TypeScript 4.9                   |
+| **Build Tool**       | Vite 7.1.11                                    |
+| **Routing**          | React Router DOM 7.9.4                         |
+| **State Management** | Context API + useReducer                       |
+| **Forms**            | Formik 2.4.6 + Yup 1.7.1                       |
+| **Styling**          | CSS Modules, Google Fonts (Open Sans)          |
+| **Testing**          | Vitest 3.2.4, Testing Library                  |
+| **Development**      | Hot Module Replacement, TypeScript Strict Mode |
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🚀 Inicio Rápido
 
-### `npm test`
+### Prerrequisitos
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Node.js** >= 16.0.0
+- **npm** >= 8.0.0
 
-### `npm run build`
+### Instalación
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+# Clonar el repositorio
+git clone https://github.com/AdrianArcoGonzalez/iskra.git
+cd react_meetup
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Instalar dependencias
+npm install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Iniciar servidor de desarrollo
+npm run dev
+```
 
-### `npm run eject`
+## 🎯 Funcionalidades Principales
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 📅 Gestión de Meetups
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Listado completo**: Grid responsivo que se adapta de 1 a 4 columnas
+- **Creación de meetups**: Formulario validado con campos requeridos
+- **Sistema de favoritos**: Marca/desmarca meetups favoritos con persistencia
+- **Imágenes con fallback**: Placeholder automático para imágenes rotas
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 📱 Experiencia Responsiva
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **Navegación adaptativa**: Menú hamburguesa en móviles, barra completa en desktop
+- **Detección automática**: useEffect con listener de resize para cambios de pantalla
+- **Badge dinámico**: Contador de favoritos visible en navegación
 
-## Learn More
+### 🔄 Estado y Datos
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Context API**: Estado global centralizado para meetups
+- **Custom Hooks**: `useMeetups` y `useFetch` para lógica reutilizable
+- **Reducers**: Gestión inmutable del estado con acciones tipadas
+- **Loading States**: Indicadores de carga durante peticiones
