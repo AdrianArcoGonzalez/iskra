@@ -1,6 +1,5 @@
 import AllMeetupsPage from "../../pages/AllMeetUpsPage/AllMeetupsPage";
 import FavoritesPage from "../../pages/FavoritesPage/FavoritesPage";
-import NewMeetupsPage from "../../pages/NewMeetUpPage/NewMeetupPage";
 import { Routes, Route, Navigate } from "react-router-dom";
 import MainNavigation from "../Navigators/MainNavigator/MainNavigation";
 import {
@@ -9,6 +8,7 @@ import {
   NEW_MEETUP_PAGE,
 } from "../../utils/constants";
 import Layout from "../Layout/Layout";
+import NewMeetUpsPage from "../../pages/NewMeetUpPage/NewMeetupPage";
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
         <Route path="/" element={<Navigate to={ALL_MEETUP_PAGE} />} />
         <Route path={ALL_MEETUP_PAGE} element={<AllMeetupsPage />} />
         <Route path={FAVORITES_PAGE} element={<FavoritesPage />} />
-        <Route path={NEW_MEETUP_PAGE} element={<NewMeetupsPage />} />
+        <Route path={NEW_MEETUP_PAGE} element={<NewMeetUpsPage />} />
       </Routes>
     </Layout>
   );
