@@ -10,7 +10,9 @@ export default defineConfig({
     open: true,
   },
   build: {
-    outDir: "build",
+    outDir: "dist",
+    assetsDir: "assets",
+    emptyOutDir: true,
   },
   resolve: {
     alias: {
@@ -29,5 +31,16 @@ export default defineConfig({
     environment: "jsdom",
     setupFiles: "./src/setupTests.ts",
     css: true,
+    coverage: {
+      reporter: ["text", "html", "json"],
+      exclude: [
+        "node_modules/",
+        "src/setupTests.ts",
+        "src/index.tsx",
+        "src/types/*",
+        "build",
+        "vite.config.ts",
+      ],
+    },
   },
 });

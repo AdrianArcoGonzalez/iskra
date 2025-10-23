@@ -1,4 +1,3 @@
-import Layout from "../Layout/Layout";
 import AllMeetupsPage from "../../pages/AllMeetUpsPage/AllMeetupsPage";
 import FavoritesPage from "../../pages/FavoritesPage/FavoritesPage";
 import NewMeetupsPage from "../../pages/NewMeetUpPage/NewMeetupPage";
@@ -9,6 +8,7 @@ import {
   FAVORITES_PAGE,
   NEW_MEETUP_PAGE,
 } from "../../utils/constants";
+import Layout from "../LAayout/Layout";
 
 function App() {
   return (
