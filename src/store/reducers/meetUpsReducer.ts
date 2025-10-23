@@ -1,4 +1,4 @@
-import { MeetUp } from "../../interfaces/MeetUp";
+import { MeetUp } from "../../interfaces/Interfaces";
 import { Action, AddMeetUpsAction } from "../types/actions";
 import { actions } from "../types/actionTypes";
 

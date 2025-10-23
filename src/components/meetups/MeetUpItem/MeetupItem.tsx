@@ -1,5 +1,5 @@
 import classes from "./MeetupItem.module.css";
-import { MeetUp } from "../../../interfaces/MeetUp";
+import { MeetUp } from "../../../interfaces/Interfaces";
 import Image from "../../Image/Image";
 import Card from "../../Card/Card";
 import useMeetups from "../../../hooks/useMeetups";

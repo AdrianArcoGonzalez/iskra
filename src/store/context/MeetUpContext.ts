@@ -1,5 +1,5 @@
 import { createContext, Dispatch } from "react";
-import { MeetUp } from "../../interfaces/MeetUp";
+import { MeetUp } from "../../interfaces/Interfaces";
 import { Action } from "../types/actions";
 
 interface MeetUpContextStructure {

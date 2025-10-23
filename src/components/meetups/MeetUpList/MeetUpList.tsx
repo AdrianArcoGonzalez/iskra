@@ -3,7 +3,7 @@ import classes from "./MeetUpList.module.css";
 import MeetUpContext from "../../../store/context/MeetUpContext";
 import MeetupItem from "../MeetUpItem/MeetupItem";
 import useMeetups from "../../../hooks/useMeetups";
-import { MeetUp } from "../../../interfaces/MeetUp";
+import { MeetUp } from "../../../interfaces/Interfaces";
 
 interface MeetUpListProps {
   meetUps: MeetUp[];

@@ -12,17 +12,15 @@ import {
 
 function App() {
   return (
-    <div data-testid="app">
+    <Layout>
       <MainNavigation />
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Navigate to={ALL_MEETUP_PAGE} />} />
-          <Route path={ALL_MEETUP_PAGE} element={<AllMeetupsPage />} />
-          <Route path={FAVORITES_PAGE} element={<FavoritesPage />} />
-          <Route path={NEW_MEETUP_PAGE} element={<NewMeetupsPage />} />
-        </Routes>
-      </Layout>
-    </div>
+      <Routes>
+        <Route path="/" element={<Navigate to={ALL_MEETUP_PAGE} />} />
+        <Route path={ALL_MEETUP_PAGE} element={<AllMeetupsPage />} />
+        <Route path={FAVORITES_PAGE} element={<FavoritesPage />} />
+        <Route path={NEW_MEETUP_PAGE} element={<NewMeetupsPage />} />
+      </Routes>
+    </Layout>
   );
 }
 
