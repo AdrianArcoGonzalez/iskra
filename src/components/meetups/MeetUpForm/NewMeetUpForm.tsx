@@ -3,6 +3,8 @@ import Card from "../../Card/Card";
 import classes from "./NewMeetupForm.module.css";
 import newMeetUpValidations from "./data/validations";
 import useMeetups from "../../../hooks/useMeetups";
+import { useNavigate } from "react-router-dom";
+import { ALL_MEETUP_PAGE } from "../../../utils/constants";
 
 interface FormValues {
   title: string;
@@ -12,10 +14,14 @@ interface FormValues {
 }
 
 export default function NewMeetUpForm() {
-  // const { addMeetup } = useMeetups();
+  const { addMeetUp, createRandomId } = useMeetups();
+  const navigate = useNavigate();
+  const submitHandler = async (values: FormValues) => {
+    const meetUp = await addMeetUp({ ...values, id: createRandomId() });
 
-  const submitHandler = (values: FormValues) => {
-    // addMeetup(values);
+    if (meetUp) {
+      navigate(ALL_MEETUP_PAGE);
+    }
   };
 
   const initialValues: FormValues = {
@@ -32,7 +38,7 @@ export default function NewMeetUpForm() {
         onSubmit={submitHandler}
         validationSchema={newMeetUpValidations}
       >
-        {({ errors, touched }) => (
+        {({ errors, touched, resetForm }) => (
           <Form className={classes.form}>
             <div className={classes.control}>
               <label
