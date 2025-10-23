@@ -4,43 +4,68 @@ import {
   FAVORITES_PAGE,
   NEW_MEETUP_PAGE,
 } from "../../../utils/constants";
-
-import classes from "./MainNavigation.module.css";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import MeetUpContext from "../../../store/context/MeetUpContext";
+import classes from "./MainNavigation.module.css";
+import { Page } from "../../../interfaces/Interfaces";
+import Menu from "../../Menu/Menu";
+
+const pages: Page[] = [
+  { name: "All Meetups", path: ALL_MEETUP_PAGE },
+  { name: "Add New Meetup", path: NEW_MEETUP_PAGE },
+  { name: "My Favorites", path: FAVORITES_PAGE, badge: true },
+];
 
 export default function MainNavigation() {
   const navigate = useNavigate();
   const { meetUps } = useContext(MeetUpContext);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+
   const handleNavigate = (path: string) => {
     navigate(path);
   };
 
-  return (
-    <header className={classes.header} data-test="navigation-header">
-      <div className={classes.logo}>React Meetups</div>
-      <nav>
-        <ul>
-          <li>
-            <button onClick={() => handleNavigate(ALL_MEETUP_PAGE)}>
-              <span>All Meetups</span>
-            </button>
-          </li>
+  const handleResize = () => {
+    setIsMobile(window.innerWidth < 768);
+  };
 
-          <li>
-            <button onClick={() => handleNavigate(NEW_MEETUP_PAGE)}>
-              <span>Add New Meetup</span>
-            </button>
-          </li>
-          <li>
-            <button onClick={() => handleNavigate(FAVORITES_PAGE)}>
-              <span>My Favorites</span>
-              <span className={classes.badge}>
-                {meetUps.filter((meetUp) => meetUp.isFavorite).length}
-              </span>
-            </button>
-          </li>
-        </ul>
+  useEffect(() => {
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  return (
+    <header className={classes.header}>
+      <span
+        className={classes.logo}
+        onClick={() => handleNavigate(ALL_MEETUP_PAGE)}
+      >
+        React Meetups
+      </span>
+      <nav>
+        {isMobile ? (
+          <Menu items={pages} />
+        ) : (
+          <ul>
+            {pages.map((page) => (
+              <li key={page.path}>
+                <button onClick={() => handleNavigate(page.path)}>
+                  <span>{page.name}</span>
+                  {page.badge && (
+                    <span className={classes.badge}>
+                      {meetUps.filter((meetUp) => meetUp.isFavorite).length}
+                    </span>
+                  )}
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
       </nav>
     </header>
   );
