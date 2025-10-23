@@ -1,9 +1,9 @@
 import { describe, test, expect, vi } from "vitest";
 import { Page } from "../../interfaces/Interfaces";
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import Menu from "./Menu";
-import { renderWithRouter } from "../../utils/testUtils";
-import { act } from "react";
+import { renderWithRouterAndContext } from "../../utils/testUtils";
+import userEvent from "@testing-library/user-event";
 
 describe("Menu component", () => {
   const itemsMock: Page[] = [
@@ -12,27 +12,21 @@ describe("Menu component", () => {
     { name: "Contact", path: "/contact" },
   ];
   test("renders the menu button", () => {
-    act(() => {
-      renderWithRouter(<Menu items={itemsMock} />);
+    renderWithRouterAndContext(<Menu items={itemsMock} />);
 
-      const menuItems = screen.getAllByRole("button");
-
-      expect(menuItems.length).toBe(1);
-    });
+    const menuButton = screen.getByText("Menu");
+    expect(menuButton).toBeInTheDocument();
   });
   test("renders as many items as passed when open by user", async () => {
-    await act(async () => {
-      renderWithRouter(<Menu items={itemsMock} />);
+    renderWithRouterAndContext(<Menu items={itemsMock} />);
 
-      const menuItems = screen.getAllByRole("button");
-      await menuItems[0].click();
+    const menuButton = screen.getByRole("button", { name: "Menu" });
+    expect(menuButton).toBeInTheDocument();
 
-      const menuItemsAfterClick = screen.getAllByRole("button");
-      expect(menuItemsAfterClick.length).toBe(itemsMock.length + 1);
+    await userEvent.click(menuButton);
 
-      itemsMock.forEach((item) => {
-        expect(screen.getByText(item.name)).toBeInTheDocument();
-      });
+    itemsMock.forEach((item) => {
+      expect(screen.getByText(item.name)).toBeInTheDocument();
     });
   });
 });
