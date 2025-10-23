@@ -21,7 +21,7 @@ export default function MeetupItem({ meetUp }: MeetUpItemProps) {
       <div className={classes.content}>
         <h3 className={classes.title}>{meetUp.title}</h3>
         <address>{meetUp.address}</address>
-        <p>{meetUp.description}</p>
+        <p className={classes.description}>{meetUp.description}</p>
       </div>
       <div className={classes.actions}>
         <button onClick={() => handleFav(meetUp.id)}>
