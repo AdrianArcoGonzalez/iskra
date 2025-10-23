@@ -1,6 +1,6 @@
 import NewMeetUpForm from "../../components/meetups/MeetUpForm/NewMeetUpForm";
 import pageTitles from "../data/data";
-import classes from "./NewMeetupPage.module.css";
+import classes from "./NewMeetUpPage.module.css";
 
 export default function NewMeetUpsPage() {
   return (
