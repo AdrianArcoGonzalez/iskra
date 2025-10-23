@@ -38,7 +38,7 @@ export default function NewMeetUpForm() {
         onSubmit={submitHandler}
         validationSchema={newMeetUpValidations}
       >
-        {({ errors, touched, resetForm }) => (
+        {({ errors, touched }) => (
           <Form className={classes.form}>
             <div className={classes.control}>
               <label

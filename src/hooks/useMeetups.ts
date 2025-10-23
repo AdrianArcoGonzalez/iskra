@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useCallback, useContext, useState } from "react";
 import MeetUpContext from "../store/context/MeetUpContext";
 import { useFetch } from "./useFetch";
 import { APIURL } from "../utils/constants";
@@ -14,20 +14,20 @@ const useMeetups = () => {
   const { dispatch } = useContext(MeetUpContext);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const getMeetups = async () => {
+  const getMeetups = useCallback(async () => {
     try {
       setIsLoading(true);
       const data = await getData(APIURL);
       dispatch(addMeetUpsActionCreator(data));
       return data;
-    } catch (error) {
+    } catch {
       return null;
     } finally {
       setTimeout(() => {
         setIsLoading(false);
       }, 1000);
     }
-  };
+  }, [dispatch, getData]);
 
   const togglefavMeetUp = (id: string) => {
     dispatch(toggleFavActionCreator(id));
@@ -39,7 +39,7 @@ const useMeetups = () => {
 
       dispatch(addMeetUpActionCreator(meetUp));
       return meetUp;
-    } catch (error) {
+    } catch {
       return null;
     }
   };
