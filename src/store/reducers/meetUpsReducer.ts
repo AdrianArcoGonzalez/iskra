@@ -1,5 +1,5 @@
 import { MeetUp } from "../../interfaces/Interfaces";
-import { Action, AddMeetUpsAction } from "../types/actions";
+import { Action, AddMeetUpAction, AddMeetUpsAction } from "../types/actions";
 import { actions } from "../types/actionTypes";
 
 const meetUpsReducer = (
@@ -23,6 +23,12 @@ const meetUpsReducer = (
           : meetUp
       );
       break;
+
+    case actions.ADD_MEETUP:
+      const newMeetUp = (action as AddMeetUpAction).payload;
+      meetUps = [newMeetUp, ...previousData];
+      break;
+
     default:
       meetUps = [...previousData];
   }
