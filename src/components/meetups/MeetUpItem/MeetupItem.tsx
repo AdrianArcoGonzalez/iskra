@@ -17,11 +17,9 @@ export default function MeetupItem({ meetUp }: MeetUpItemProps) {
 
   return (
     <Card>
-      <div className={classes.image}>
-        <Image src={meetUp.image} alt={meetUp.title} />
-      </div>
+      <Image src={meetUp.image} alt={meetUp.title} />
       <div className={classes.content}>
-        <h3>{meetUp.title}</h3>
+        <h3 className={classes.title}>{meetUp.title}</h3>
         <address>{meetUp.address}</address>
         <p>{meetUp.description}</p>
       </div>
