@@ -1,5 +1,5 @@
 import classes from "./MeetupItem.module.css";
-import { MeetUp } from "../../../interfaces/MeetUp";
+import { MeetUp } from "../../../interfaces/Interfaces";
 import Image from "../../Image/Image";
 import Card from "../../Card/Card";
 import useMeetups from "../../../hooks/useMeetups";
@@ -17,11 +17,9 @@ export default function MeetupItem({ meetUp }: MeetUpItemProps) {
 
   return (
     <Card>
-      <div className={classes.image}>
-        <Image src={meetUp.image} alt={meetUp.title} />
-      </div>
+      <Image src={meetUp.image} alt={meetUp.title} />
       <div className={classes.content}>
-        <h3>{meetUp.title}</h3>
+        <h3 className={classes.title}>{meetUp.title}</h3>
         <address>{meetUp.address}</address>
         <p>{meetUp.description}</p>
       </div>

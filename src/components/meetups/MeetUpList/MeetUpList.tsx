@@ -1,9 +1,8 @@
 import { useContext, useEffect } from "react";
 import classes from "./MeetUpList.module.css";
-import MeetUpContext from "../../../store/context/MeetUpContext";
 import MeetupItem from "../MeetUpItem/MeetupItem";
 import useMeetups from "../../../hooks/useMeetups";
-import { MeetUp } from "../../../interfaces/MeetUp";
+import { MeetUp } from "../../../interfaces/Interfaces";
 
 interface MeetUpListProps {
   meetUps: MeetUp[];
@@ -15,7 +14,7 @@ const MeetUpList = ({ meetUps, emptyMsg }: MeetUpListProps) => {
   return (
     <ul className={classes.list}>
       {isLoading ? (
-        <span>Loading...</span>
+        <span className={classes.loading}>Loading...</span>
       ) : meetUps.length > 0 ? (
         meetUps.map((meetUp) => (
           <li className={classes.item} key={meetUp.id} data-test="meet-up-item">

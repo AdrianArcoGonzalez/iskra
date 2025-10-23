@@ -1,4 +1,4 @@
-import { MeetUp } from "../interfaces/MeetUp";
+import { MeetUp } from "../interfaces/Interfaces";
 
 export const useFetch = () => {
   const getData = async (url: string): Promise<MeetUp[]> => {

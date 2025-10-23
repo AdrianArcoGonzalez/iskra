@@ -1,5 +1,5 @@
 import Layout from "../Layout/Layout";
-import AllMeetupsPage from "../../pages/AllMeetupsPage";
+import AllMeetupsPage from "../../pages/AllMeetUpsPage/AllMeetupsPage";
 import FavoritesPage from "../../pages/FavoritesPage";
 import NewMeetupsPage from "../../pages/NewMeetupPage";
 import { Routes, Route, Navigate } from "react-router-dom";
@@ -12,17 +12,15 @@ import {
 
 function App() {
   return (
-    <div data-testid="app">
+    <Layout>
       <MainNavigation />
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Navigate to={ALL_MEETUP_PAGE} />} />
-          <Route path={ALL_MEETUP_PAGE} element={<AllMeetupsPage />} />
-          <Route path={FAVORITES_PAGE} element={<FavoritesPage />} />
-          <Route path={NEW_MEETUP_PAGE} element={<NewMeetupsPage />} />
-        </Routes>
-      </Layout>
-    </div>
+      <Routes>
+        <Route path="/" element={<Navigate to={ALL_MEETUP_PAGE} />} />
+        <Route path={ALL_MEETUP_PAGE} element={<AllMeetupsPage />} />
+        <Route path={FAVORITES_PAGE} element={<FavoritesPage />} />
+        <Route path={NEW_MEETUP_PAGE} element={<NewMeetupsPage />} />
+      </Routes>
+    </Layout>
   );
 }
 

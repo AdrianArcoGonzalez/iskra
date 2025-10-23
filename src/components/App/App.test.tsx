@@ -1,7 +1,6 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import { describe, test, expect, vi } from "vitest";
 import App from "./App";
-import { BrowserRouter } from "react-router-dom";
 import { renderWithRouter } from "../../utils/testUtils";
 
 const dataMock = [
@@ -22,10 +21,8 @@ vi.mock("../../hooks/useFetch", () => ({
 
 describe("App Component", () => {
   test("renders App without crashing", () => {
-    const testId = "app";
-
     renderWithRouter(<App />);
-    const app = screen.getByTestId(testId);
+    const app = screen.getByRole("main");
 
     expect(app).toBeInTheDocument();
   });
@@ -37,15 +34,5 @@ describe("App Component", () => {
     const text = screen.getByText(title);
 
     expect(text).toBeInTheDocument();
-  });
-
-  test("renders the main layout", () => {
-    const testId = "layout";
-
-    renderWithRouter(<App />);
-
-    const layoutContainer = screen.getByTestId(testId);
-
-    expect(layoutContainer).toBeInTheDocument();
   });
 });

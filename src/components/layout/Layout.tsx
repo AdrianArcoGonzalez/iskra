@@ -5,9 +5,5 @@ interface LayoutProps {
 }
 
 export default function Layout({ children }: LayoutProps) {
-  return (
-    <div data-testid="layout">
-      <main className={classes.main}>{children}</main>
-    </div>
-  );
+  return <main className={classes.main}>{children}</main>;
 }

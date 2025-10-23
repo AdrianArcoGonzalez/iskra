@@ -38,6 +38,7 @@
   color: #fcb8d2;
   width: 160px;
   border-bottom: 1px solid #fcb8d2;
+  cursor: pointer;
 }
 .listItemButton {
   border: none;
