@@ -20,7 +20,6 @@
   font-size: 2rem;
   color: white;
   font-weight: bold;
-  padding: 5px;
 }
 
 .header ul {
@@ -33,6 +32,7 @@
 .header li {
   display: flex;
   padding: 5px;
+  cursor: pointer;
 }
 
 .header button {
