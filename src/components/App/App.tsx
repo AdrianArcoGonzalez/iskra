@@ -8,7 +8,7 @@ import {
   FAVORITES_PAGE,
   NEW_MEETUP_PAGE,
 } from "../../utils/constants";
-import Layout from "../LAayout/Layout";
+import Layout from "../Layout/Layout";
 
 function App() {
   return (
