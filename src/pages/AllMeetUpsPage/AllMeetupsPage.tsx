@@ -10,7 +10,7 @@ export default function AllMeetupsPage() {
 
   useEffect(() => {
     if (!meetUps.length) getMeetups();
-  }, []);
+  }, [getMeetups, meetUps.length]);
   return (
     <section className={classes.page}>
       <h1>{pageTitles.home}</h1>

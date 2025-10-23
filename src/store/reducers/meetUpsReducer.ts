@@ -15,7 +15,7 @@ const meetUpsReducer = (
 
       break;
 
-    case actions.TOOGLE_FAV:
+    case actions.TOOGLE_FAV: {
       const meetUpId = (action as { type: string; payload: string }).payload;
       meetUps = previousData.map((meetUp) =>
         meetUp.id === meetUpId
@@ -23,11 +23,13 @@ const meetUpsReducer = (
           : meetUp
       );
       break;
+    }
 
-    case actions.ADD_MEETUP:
+    case actions.ADD_MEETUP: {
       const newMeetUp = (action as AddMeetUpAction).payload;
       meetUps = [newMeetUp, ...previousData];
       break;
+    }
 
     default:
       meetUps = [...previousData];

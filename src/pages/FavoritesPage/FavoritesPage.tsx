@@ -11,7 +11,7 @@ export default function FavoritesPage() {
 
   useEffect(() => {
     if (!meetUps.length) getMeetups();
-  }, []);
+  }, [getMeetups, meetUps.length]);
 
   return (
     <section className={classes.page}>
