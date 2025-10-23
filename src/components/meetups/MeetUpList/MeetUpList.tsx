@@ -1,5 +1,4 @@
-import { useContext, useEffect } from "react";
-import classes from "./MeetUpList.module.css";
+import classes from "./MeetupList.module.css";
 import MeetupItem from "../MeetUpItem/MeetupItem";
 import useMeetups from "../../../hooks/useMeetups";
 import { MeetUp } from "../../../interfaces/Interfaces";
