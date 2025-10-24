@@ -2,6 +2,8 @@
 
 Una aplicación moderna de gestión de meetups construida con **React 18**, **TypeScript** y **Vite**. Permite a los usuarios explorar, crear y gestionar meetups de forma intuitiva y responsiva.
 
+**🌐 [Ver aplicación en vivo](https://iskra-adrian-arco.netlify.app/home)** - Desplegada en Netlify
+
 ## ✨ Características
 
 - **📅 Gestión completa de meetups**: Visualiza, crea y marca como favoritos
@@ -12,6 +14,9 @@ Una aplicación moderna de gestión de meetups construida con **React 18**, **Ty
 - **📐 Arquitectura escalable**: Context API, custom hooks y componentes reutilizables
 - **🎨 CSS Modules**: Estilos modulares y encapsulados
 - **✅ Validación de formularios**: Integración con Formik y Yup
+- **🔍 Linting**: ESLint integrado para calidad de código
+- **📊 Análisis de calidad**: SonarCloud para métricas y mejores prácticas
+- **🚀 Despliegue continuo**: Netlify con integración automática desde GitHub
 
 ## 🛠️ Stack Tecnológico
 
@@ -24,6 +29,8 @@ Una aplicación moderna de gestión de meetups construida con **React 18**, **Ty
 | **Forms**            | Formik 2.4.6 + Yup 1.7.1                       |
 | **Styling**          | CSS Modules, Google Fonts (Open Sans)          |
 | **Testing**          | Vitest 3.2.4, Testing Library                  |
+| **Quality**          | ESLint, SonarCloud                             |
+| **Deployment**       | Netlify                                        |
 | **Development**      | Hot Module Replacement, TypeScript Strict Mode |
 
 ## 🚀 Inicio Rápido
