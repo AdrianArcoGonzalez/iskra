@@ -31,7 +31,7 @@ export default function MainNavigation() {
 
   useEffect(() => {
     (async () => {
-      await handleResize();
+      handleResize();
     })();
 
     window.addEventListener("resize", handleResize);
