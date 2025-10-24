@@ -4,7 +4,7 @@ import {
   FAVORITES_PAGE,
   NEW_MEETUP_PAGE,
 } from "../../../utils/constants";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState, useRef } from "react";
 import MeetUpContext from "../../../store/context/MeetUpContext";
 import classes from "./MainNavigation.module.css";
 import { Page } from "../../../interfaces/Interfaces";
@@ -20,6 +20,17 @@ export default function MainNavigation() {
   const navigate = useNavigate();
   const { meetUps } = useContext(MeetUpContext);
   const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [isHeaderVisible, setIsHeaderVisible] = useState<boolean>(true);
+  const lastScrollY = useRef<number>(0);
+  const handleScroll = () => {
+    const currentY = window.scrollY || window.pageYOffset;
+    if (currentY > lastScrollY.current && currentY > 50) {
+      setIsHeaderVisible(false);
+    } else {
+      setIsHeaderVisible(true);
+    }
+    lastScrollY.current = currentY;
+  };
 
   const handleNavigate = (path: string) => {
     navigate(path);
@@ -41,8 +52,15 @@ export default function MainNavigation() {
     };
   }, []);
 
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className={classes.header}>
+    <header
+      className={`${classes.header} ${!isHeaderVisible ? classes.hidden : ""}`}
+    >
       <span
         className={classes.logo}
         onClick={() => handleNavigate(ALL_MEETUP_PAGE)}
