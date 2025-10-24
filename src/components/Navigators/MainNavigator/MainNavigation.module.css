@@ -67,7 +67,6 @@
   border-radius: 100%;
 }
 
-/* Hidden state used when user scrolls down */
 .hidden {
   transform: translateY(-110%);
   opacity: 0;
