@@ -10,7 +10,7 @@ import {
 import { MeetUp } from "../interfaces/Interfaces";
 
 const useMeetups = () => {
-  const { getData, postData } = useFetch();
+  const { getData } = useFetch();
   const { dispatch } = useContext(MeetUpContext);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -35,7 +35,7 @@ const useMeetups = () => {
 
   const addMeetUp = async (meetUp: MeetUp) => {
     try {
-      await postData(APIURL, meetUp);
+      // await postData(APIURL, meetUp);
 
       dispatch(addMeetUpActionCreator(meetUp));
       return meetUp;

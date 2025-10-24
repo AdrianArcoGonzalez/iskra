@@ -10,21 +10,20 @@ interface MeetUpListProps {
 const MeetUpList = ({ meetUps, emptyMsg }: MeetUpListProps) => {
   const { isLoading } = useMeetups();
 
-  return (
-    <ul className={classes.list}>
-      {isLoading ? (
-        <span className={classes.loading}>Loading...</span>
-      ) : meetUps.length > 0 ? (
-        meetUps.map((meetUp) => (
-          <li className={classes.item} key={meetUp.id} data-test="meet-up-item">
-            <MeetupItem meetUp={meetUp} />
-          </li>
-        ))
-      ) : (
-        <li className={classes.item}>{emptyMsg}</li>
-      )}
-    </ul>
-  );
+  const renderMeetUps = (meetUps: MeetUp[], isLoading: boolean) => {
+    if (isLoading) {
+      return <li className={classes.loading}>Loading...</li>;
+    }
+    if (meetUps.length > 0) {
+      return meetUps.map((meetUp) => (
+        <li className={classes.item} key={meetUp.id} data-test="meet-up-item">
+          <MeetupItem meetUp={meetUp} />
+        </li>
+      ));
+    }
+    return <li className={classes.item}>{emptyMsg}</li>;
+  };
+  return <ul className={classes.list}>{renderMeetUps(meetUps, isLoading)}</ul>;
 };
 
 export default MeetUpList;

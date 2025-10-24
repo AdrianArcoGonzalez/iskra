@@ -20,7 +20,7 @@ const Menu = ({ items }: MenuProps) => {
 
   return (
     <div className={classes.menu}>
-      <button onClick={toggleMenu} role="button" className={classes.menuButton}>
+      <button onClick={toggleMenu} className={classes.menuButton}>
         Menu
       </button>
       {isOpen && (
@@ -29,7 +29,6 @@ const Menu = ({ items }: MenuProps) => {
             {items.map((item) => (
               <li key={item.path} className={classes.listItem}>
                 <button
-                  role="button"
                   onClick={() => handleNavigate(item.path)}
                   className={classes.listItemButton}
                 >
