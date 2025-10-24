@@ -22,6 +22,7 @@ export default function MainNavigation() {
   const [isMobile, setIsMobile] = useState<boolean>(false);
   const [isHeaderVisible, setIsHeaderVisible] = useState<boolean>(true);
   const lastScrollY = useRef<number>(0);
+
   const handleScroll = () => {
     const currentY = window.scrollY || window.pageYOffset;
     if (currentY > lastScrollY.current && currentY > 50) {
@@ -59,7 +60,7 @@ export default function MainNavigation() {
 
   return (
     <header
-      className={`${classes.header} ${!isHeaderVisible ? classes.hidden : ""}`}
+      className={`${classes.header} ${isHeaderVisible ? "" : classes.hidden}`}
     >
       <span
         className={classes.logo}
