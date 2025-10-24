@@ -2,7 +2,7 @@
 
 Una aplicación moderna de gestión de meetups construida con **React 18**, **TypeScript** y **Vite**. Permite a los usuarios explorar, crear y gestionar meetups de forma intuitiva y responsiva.
 
-**🌐 [Ver aplicación en vivo](https://iskra-adrian-arco.netlify.app/home)** - Desplegada en Netlify
+**🌐 [Ver aplicación en vivo](https://iskra-adrian-arco.netlify.app)** - Desplegada en Netlify
 
 ## ✨ Características
 
