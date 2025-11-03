@@ -4,7 +4,7 @@ import {
   FAVORITES_PAGE,
   NEW_MEETUP_PAGE,
 } from "../../../utils/constants";
-import { useContext, useEffect, useState, useRef } from "react";
+import { useContext, useEffect, useState, useRef, useMemo } from "react";
 import MeetUpContext from "../../../store/context/MeetUpContext";
 import classes from "./MainNavigation.module.css";
 import { Page } from "../../../interfaces/Interfaces";
@@ -22,7 +22,10 @@ export default function MainNavigation() {
   const [isMobile, setIsMobile] = useState<boolean>(false);
   const [isHeaderVisible, setIsHeaderVisible] = useState<boolean>(true);
   const lastScrollY = useRef<number>(0);
-
+  const favs = useMemo(
+    () => meetUps.filter((meetUp) => meetUp.isFavorite),
+    [meetUps]
+  );
   const handleScroll = () => {
     const currentY = window.scrollY || window.pageYOffset;
     if (currentY > lastScrollY.current && currentY > 50) {
@@ -78,9 +81,7 @@ export default function MainNavigation() {
                 <button onClick={() => handleNavigate(page.path)}>
                   <span>{page.name}</span>
                   {page.badge && (
-                    <span className={classes.badge}>
-                      {meetUps.filter((meetUp) => meetUp.isFavorite).length}
-                    </span>
+                    <span className={classes.badge}>{favs.length}</span>
                   )}
                 </button>
               </li>

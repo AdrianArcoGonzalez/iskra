@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Page } from "../../interfaces/Interfaces";
-import { useContext, useState } from "react";
+import { useContext, useMemo, useState } from "react";
 import classes from "./Menu.module.css";
 import MeetUpContext from "../../store/context/MeetUpContext";
 interface MenuProps {
@@ -11,6 +11,10 @@ const Menu = ({ items }: MenuProps) => {
   const navigate = useNavigate();
   const { meetUps } = useContext(MeetUpContext);
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const favs = useMemo(
+    () => meetUps.filter((meetUp) => meetUp.isFavorite),
+    [meetUps]
+  );
   const handleNavigate = (path: string) => {
     navigate(path);
   };
@@ -34,9 +38,7 @@ const Menu = ({ items }: MenuProps) => {
                 >
                   <span>{item.name}</span>
                   {item.badge && (
-                    <span className={classes.badge}>
-                      {meetUps.filter((meetUp) => meetUp.isFavorite).length}
-                    </span>
+                    <span className={classes.badge}>{favs.length}</span>
                   )}
                 </button>
               </li>
