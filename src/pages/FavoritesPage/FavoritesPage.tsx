@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useMemo } from "react";
 import pageTitles from "../data/data";
 import MeetUpContext from "../../store/context/MeetUpContext";
 import MeetUpList from "../../components/meetups/MeetUpList/MeetUpList";
@@ -9,6 +9,10 @@ export default function FavoritesPage() {
   const { meetUps } = useContext(MeetUpContext);
   const { getMeetups } = useMeetups();
 
+  const favs = useMemo(
+    () => meetUps.filter((meetUp) => meetUp.isFavorite),
+    [meetUps]
+  );
   useEffect(() => {
     if (!meetUps.length) getMeetups();
   }, [getMeetups, meetUps.length]);
@@ -16,10 +20,8 @@ export default function FavoritesPage() {
   return (
     <section className={classes.page}>
       <h1>{pageTitles.favorites}</h1>
-      <MeetUpList
-        meetUps={meetUps.filter((meetUp) => meetUp.isFavorite)}
-        emptyMsg="Haven't any favorite meetup yet."
-      />
+
+      <MeetUpList meetUps={favs} emptyMsg="Haven't any favorite meetup yet." />
     </section>
   );
 }
